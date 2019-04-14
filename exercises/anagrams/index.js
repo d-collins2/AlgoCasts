@@ -8,6 +8,19 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  // .replace(/[^\w]/g, "") => gets rid of extra punctuations
+  let unsortedA = stringA.toLowerCase().replace(/[^\w]/g, "")
+  let unsortedB = stringB.toLowerCase().replace(/[^\w]/g, "")
+
+  if(unsortedA.length !== unsortedB.length){
+    return false
+  }
+
+  const sortedA = unsortedA.split('').sort().join('')
+  const sortedB = unsortedB.split('').sort().join('')
+
+  return sortedA === sortedB
+}
 
 module.exports = anagrams;
